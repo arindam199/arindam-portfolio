@@ -12,20 +12,45 @@ export const Contact = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     
-    // Frontend-only mock submission
-    // To connect to a real backend like Formspree/EmailJS, replace this timeout with the API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+    try {
+      // Create FormData to send to Web3Forms
+      const submissionData = new FormData();
       
-      // Reset status after a few seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    }, 1500);
+      submissionData.append("access_key", "2c8d07d5-640d-49c7-a5cd-f50b2da568ad"); 
+      submissionData.append("name", formData.name);
+      submissionData.append("email", formData.email);
+      submissionData.append("message", formData.message);
+      submissionData.append("subject", "New Contact from Portfolio!");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: submissionData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+        console.error("Web3Forms Error:", data);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error("Fetch Error:", error);
+    } finally {
+      setIsSubmitting(false);
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        if (submitStatus === 'success') setSubmitStatus('idle');
+      }, 5000);
+    }
   };
 
   return (
@@ -149,6 +174,12 @@ export const Contact = () => {
                 {submitStatus === 'success' && (
                   <div className="p-3 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400 text-sm text-center">
                     Message received! I'll get back to you soon.
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm text-center">
+                    Oops! Something went wrong. Please try again.
                   </div>
                 )}
               </form>
