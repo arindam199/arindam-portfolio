@@ -7,7 +7,7 @@ export const personalInfo = {
   socials: {
     linkedin: "https://linkedin.com/in/arindam-banerjee-0a1627290",
     leetcode: "https://leetcode.com/u/arindam25737",
-    github: "", // Left empty as requested to avoid inventing URLs
+    github: "https://github.com/arindam199",
     email: "mailto:banerjeearindam888@gmail.com"
   },
   education: {
