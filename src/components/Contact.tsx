@@ -18,18 +18,19 @@ export const Contact = () => {
     setSubmitStatus('idle');
     
     try {
-      // Create FormData to send to Web3Forms
-      const submissionData = new FormData();
-      
-      submissionData.append("access_key", "2c8d07d5-640d-49c7-a5cd-f50b2da568ad"); 
-      submissionData.append("name", formData.name);
-      submissionData.append("email", formData.email);
-      submissionData.append("message", formData.message);
-      submissionData.append("subject", "New Contact from Portfolio!");
-
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: submissionData
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "2c8d07d5-640d-49c7-a5cd-f50b2da568ad",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: "New Contact from Portfolio!"
+        })
       });
 
       const data = await response.json();
