@@ -42,7 +42,7 @@ const AnimatedCounter = ({ value, duration = 2 }: { value: string, duration?: nu
 
 export const Impact = () => {
   return (
-    <section className="py-20 relative border-y border-white/5 bg-blue-950/10">
+    <section className="py-20 relative border-y border-blue-100 bg-blue-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
           {impacts.map((impact, index) => (
@@ -54,10 +54,10 @@ export const Impact = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col items-center justify-center p-4 group"
             >
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors drop-shadow-md">
+              <div className="text-4xl md:text-5xl font-display font-bold text-blue-accent mb-2 group-hover:scale-110 transition-transform drop-shadow-sm">
                 <AnimatedCounter value={impact.value} />
               </div>
-              <div className="text-sm md:text-base text-gray-400 font-medium tracking-wide uppercase">
+              <div className="text-sm md:text-base text-gray-600 font-bold tracking-wide uppercase">
                 {impact.label}
               </div>
             </motion.div>

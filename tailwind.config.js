@@ -7,12 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#030712', // deep navy/black
-        primary: '#3b82f6', // blue
-        secondary: '#8b5cf6', // purple
+        'light-bg': '#fcfcfc',
+        'dark-text': '#333333',
+        'blue-accent': '#2563eb',
+        'blue-dark': '#1d4ed8',
+        'soft-gray': '#f5f5f5',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        display: ['Alexandria', 'sans-serif'],
+        handwriting: ['"Chelsea Market"', 'cursive'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

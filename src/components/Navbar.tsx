@@ -23,22 +23,22 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'glass shadow-lg shadow-black/20 py-4' : 'bg-transparent py-6'
+    <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-5xl ${
+      isScrolled ? 'py-3' : 'py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-white/80 backdrop-blur-xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full px-6 py-3">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-xl font-bold tracking-widest text-white hover:text-blue-400 transition-colors">
-            ARINDAM<span className="text-blue-500">.</span>
+          <a href="#" className="text-xl font-display font-bold tracking-tight text-dark-text hover:text-blue-accent transition-colors">
+            arindam<span className="text-blue-accent font-handwriting text-2xl leading-none">.</span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-white hover:text-shadow-glow transition-all"
+                className="text-sm font-medium text-gray-500 hover:text-blue-accent px-4 py-2 rounded-full hover:bg-blue-50 transition-all"
               >
                 {link.name}
               </a>
@@ -49,7 +49,7 @@ export const Navbar = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none"
+              className="text-gray-500 hover:text-blue-accent focus:outline-none p-2"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -58,16 +58,16 @@ export const Navbar = () => {
       </div>
 
       {/* Mobile Nav */}
-      <div className={`md:hidden absolute top-full left-0 w-full glass transition-all duration-300 origin-top ${
+      <div className={`md:hidden absolute top-full left-0 w-full mt-2 transition-all duration-300 origin-top ${
         mobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 h-0 overflow-hidden'
       }`}>
-        <div className="px-4 pt-2 pb-6 space-y-1 shadow-xl">
+        <div className="px-4 py-4 space-y-2 bg-white rounded-3xl shadow-xl border border-gray-100">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-4 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg"
+              className="block px-4 py-3 text-base font-medium text-gray-600 hover:text-blue-accent hover:bg-blue-50 rounded-xl transition-colors"
             >
               {link.name}
             </a>
