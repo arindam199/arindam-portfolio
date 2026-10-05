@@ -71,6 +71,18 @@ export const experience = [
     ],
     tech: ["Leadership", "Event Planning", "Team Coordination"],
     highlight: false
+  },
+  {
+    role: "Management Head",
+    company: "Aikyatan",
+    timeline: "2025 - 2026",
+    details: [
+      "Led a large-scale organization of 400+ team members, comprehensively overseeing both on-ground and off-ground operations.",
+      "Successfully orchestrated and executed 30+ events, managing everything from logistics and planning to final execution.",
+      "Managed participant relations, schedules, and event flow for over 1,500+ attendees."
+    ],
+    tech: ["Event Management", "Leadership", "Team Coordination", "Operations Management"],
+    highlight: true
   }
 ];
 
