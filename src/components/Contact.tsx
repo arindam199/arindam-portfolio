@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/portfolioData';
 import { Mail, Linkedin, Code2, Phone } from 'lucide-react';
