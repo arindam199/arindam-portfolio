@@ -127,6 +127,19 @@ export const projects = [
     tech: ["React.js", "Node.js", "Express.js", "SQL"],
     codeLink: "",
     liveLink: ""
+  },
+  {
+    title: "AI Fintech Fraud Detection System",
+    description: "An enterprise-level fintech application featuring a Next.js frontend and FastAPI backend, utilizing an XGBoost machine learning model for real-time transaction monitoring and fraud detection.",
+    features: [
+      "Real-time transaction monitoring and analytics",
+      "XGBoost machine learning model for fraud detection",
+      "FastAPI backend with secure user authentication",
+      "Interactive data visualization dashboards"
+    ],
+    tech: ["Next.js", "FastAPI", "Python", "XGBoost", "Tailwind CSS"],
+    codeLink: "",
+    liveLink: ""
   }
 ];
 
