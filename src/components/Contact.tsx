@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/portfolioData';
-import { Mail, Linkedin, Code2, Send } from 'lucide-react';
+import { Mail, Linkedin, Code2, Send, Phone } from 'lucide-react';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -71,6 +71,16 @@ export const Contact = () => {
             </p>
             
             <div className="space-y-6">
+              <a href={`tel:${personalInfo.phone?.replace(/ /g, '')}`} className="flex items-center gap-4 group bg-soft-gray p-4 rounded-2xl border border-gray-100 hover:border-green-200 transition-colors">
+                <div className="p-4 bg-white rounded-xl text-gray-400 group-hover:text-green-500 shadow-sm transition-colors">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <div className="text-sm text-gray-500 font-medium">Phone</div>
+                  <div className="text-lg text-dark-text font-semibold group-hover:text-green-600 transition-colors">{personalInfo.phone}</div>
+                </div>
+              </a>
+
               <a href={personalInfo.socials.email} className="flex items-center gap-4 group bg-soft-gray p-4 rounded-2xl border border-gray-100 hover:border-blue-200 transition-colors">
                 <div className="p-4 bg-white rounded-xl text-gray-400 group-hover:text-blue-accent shadow-sm transition-colors">
                   <Mail size={24} />

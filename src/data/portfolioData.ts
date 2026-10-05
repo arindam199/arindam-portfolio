@@ -4,6 +4,7 @@ export const personalInfo = {
   name: "Arindam Banerjee",
   role: "Software Engineer | Full-Stack Developer | AI & IoT Enthusiast",
   email: "banerjeearindam888@gmail.com",
+  phone: "+91 8709786647",
   socials: {
     linkedin: "https://linkedin.com/in/arindam-banerjee-0a1627290",
     leetcode: "https://leetcode.com/u/arindamd25737",
